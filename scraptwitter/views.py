@@ -5,11 +5,12 @@ import tweepy
 from django.db.models import Max
 import datetime
 import praw
-# Create your views here.
-def home(request):
-    return render(request, 'specific_home.html')
 
-def TwitterShowData(request):
+# Create your views here.
+def page(request):
+    return render(request, 'page.html')
+
+def TwitterData(request):
     TESTING = False
     if not TESTING:
         #----------Authenticating webapp with Twitter-------------
@@ -46,9 +47,9 @@ def TwitterShowData(request):
                 instance.save()
                 print("data to added to db ", info.id, info.created_at, info.full_text)
     tweets = TwitterModel.objects.all().order_by('-created_at')
-    return render(request, 'tweetshowGUI.html',{'records':tweets})
+    return render(request, 'tweet_GUI.html',{'records':tweets})
 
-def TwitterPostData(request):
+def TwitterPData(request):
     if (request.method == 'POST'):
         data = request.POST
         print(data,data['tweet'])
@@ -61,14 +62,14 @@ def TwitterPostData(request):
         api.update_status(data['tweet'])
         return redirect('/tshow/')
 
-    return render(request, "tweetpost.html")
+    return render(request, "tweetr_posts.html")
 
 
-def RedditShowData(request):
+def RedditData(request):
     posts = RedditModel.objects.all().order_by('-created_at')
-    return render(request, 'postshowGUI.html',{'records':posts})
+    return render(request, 'RedditShow.html',{'records':posts})
 
-def RedditPostData(request):
+def RedditPData(request):
     if (request.method == 'POST'):
         data = request.POST
         print(data,data['title'],data['post'])
@@ -94,7 +95,7 @@ def RedditPostData(request):
         instance.post = data['post']
         instance.created_at = datetime.datetime.now()
         instance.save()
-        print('Saved to db')
+        print('Saved to db') 
         return redirect('/rshow/')
 
-    return render(request, "rpost.html")
+    return render(request, "redditpost.html")

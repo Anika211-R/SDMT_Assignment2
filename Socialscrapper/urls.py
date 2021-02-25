@@ -18,9 +18,9 @@ from django.urls import path
 from scraptwitter import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
-    path('tshow/',views.TwitterShowData),
-    path('tpost/', views.TwitterPostData),
-    path('rshow/',views.RedditShowData),
-    path('rpost/', views.RedditPostData),
+    path('',views.page),
+    path('tshow/',views.TwitterData),
+    path('tpost/', views.TwitterPData),
+    path('rshow/',views.RedditData),
+    path('rpost/', views.RedditPData),
 ]

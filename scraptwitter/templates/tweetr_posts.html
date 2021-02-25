@@ -1,0 +1,18 @@
+{% extends 'home.html'%}
+{% block content %}
+<div class="container" >
+    <br/>
+    <h2 align="center" style="background-image: url(https://pbs.twimg.com/profile_images/1354479643882004483/Btnfm47p_400x400.jpg);">POST YOUR THOUGHTS!!!</h2>
+    <br/>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="tweet"><h4 style="color: royalblue;">JOT DOWN YOUR THOUGHTS HERE</h4></label>
+        <textarea  id="tweet" style="height:100px" type="text" name="tweet"  class="form-control" placeholder="Enter here"></textarea>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-info" >Proceed</button>
+
+</div>
+
+{% endblock %}

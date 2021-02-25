@@ -1,0 +1,25 @@
+{% extends 'home.html'%}
+{% block content %}
+<br/>
+<h2 style="color:white;text-align:center;">CLICK BELOW TO POST</h2>
+<div class="row">
+    <div class="col-lg-6">
+
+        <a href="/rshow" class="btn btn-info" role="button" style="color: salmon; font-size: xx-large;">Reddit Account</a>
+    </div>
+    <style>
+        body {
+         background-image: url('https://res.cloudinary.com/practicaldev/image/fetch/s--BYV5CfAo--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/xvdzz3kyhj5crlwzgk7r.jpg');
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         background-size: cover;
+                }
+    </style>
+    <div class="col-lg-6">
+        <a href="/tshow" class="btn btn-info" role="button" style="color: salmon; font-size: xx-large;">Twitter Account</a>
+        <style>
+            body {background-image: url(https://ifttt.com/images/recipes/social/large/if_reddit_then_twitter.png);}
+        </style>
+    </div>
+</div>
+{% endblock %}
